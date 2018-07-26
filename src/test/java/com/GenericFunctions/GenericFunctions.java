@@ -24,25 +24,13 @@ public class GenericFunctions extends TestNGListeners {
 
 	public static WebDriver driver;
 
-	/*************************************************
-	 * 
-	 * 
-	 * Function Name:launchApplication
-	 * 
-	 * Purpose:-This Function is used to launch the HRM Application when ever
-	 * the user is required
-	 * 
-	 * Input Parameters:-User must send in which browser does the application
-	 * need to be launch
-	 * 
-	 * Output Parameters:-This method will return a boolean value stating wheter
-	 * the user logged into in the system
-	 * 
-	 * Author:-Veera Prathap Malepati
-	 * 
-	 * Creationn date:-12/30/2017
-	 * 
-	 * 
+	/************************************************** 
+	 * Method Name		:launchApplication 
+	 * Purpose			:To Launch the application
+	 * I/P Parameters	:Browser Name
+	 * O/P Parameters	:This method will return a boolean value depending on the 
+	 * Author			:
+	 * Creation date	: 
 	 **************************************************/
 
 	public static boolean launchApplication(String browser) {
@@ -72,42 +60,24 @@ public class GenericFunctions extends TestNGListeners {
 
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\tm\\Downloads\\chromedriver.exe");
-
 			driver = new ChromeDriver();
 			String url1 = getCommontestdata("Url");
 			System.out.println(url1);
 			driver.manage().window().maximize();
-
 			break;
-
 		default:
 			break;
 		}
-
 		return status;
-
 	}
-
 	/*************************************************
-	 * 
-	 * 
-	 * Function Name:GetCommonTestdata
-	 * 
-	 * Purpose:-This Function is used to get the common test data which can be
-	 * accessed commonly for each testcase such as
-	 * Environment,Url,Username,Password
-	 * 
-	 * Input Parameters:-User must send an argument stating what data that is
-	 * required
-	 * 
-	 * Output Parameters:-This method will return a string value for the User
-	 * given input(If data is not found it will return a null)
-	 * 
-	 * Author:-Veera Prathap Malepati
-	 * 
-	 * Creationn date:-12/31/2017
-	 * 
-	 * 
+	 * Method Name		: GetCommonTestdata
+	 * Purpose			: This method is used to read the common test data common to the test suite like 
+	 * Environment,Url, User name,Password and any connection strings.
+	 * I/P Parameters	: Column name from the excel 
+	 * O/P Parameters	: This method will return a string value from the given column
+	 * Author			:
+	 * Creation date	:
 	 **************************************************/
 
 	public static String getCommontestdata(String data) {
@@ -143,6 +113,15 @@ public class GenericFunctions extends TestNGListeners {
 		return fetcheddata;
 
 	}
+	/*************************************************
+	 * Method Name		: getdata
+	 * Purpose			: This method is used to read test data from the given 
+	   test data sheet, column and iteration.
+	 * I/P Parameters	: Sheet name,column name and iteration
+	 * O/P Parameters	: This method will return a string value from the given column
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 
 	public static String getdata(String sheetname, String userdata, int itr) {
 
@@ -179,7 +158,15 @@ public class GenericFunctions extends TestNGListeners {
 		
 
 	}
-
+	/*************************************************
+	 * Method Name		: waitforElement
+	 * Purpose			: This method is used to read test data from the given 
+	   test data sheet, column and iteration.
+	 * I/P Parameters	: Sheet name,column name and iteration
+	 * O/P Parameters	: This method will return a string value from the given column
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public static void waitForElement(WebElement element) {
 
 		for (int i = 1; i <= 10; i++) {
