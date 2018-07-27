@@ -174,16 +174,12 @@ public class GenericFunctions extends TestNGListeners {
 				System.out.println("Wait is executing");
 				Actions acc = new Actions(driver);
 				acc.moveToElement(element).build().perform();
-
 				System.out.println("Element Found");
 				break;
-
 			} catch (Exception e) {
 				try {
 					Thread.sleep(1000);
-
 				} catch (InterruptedException e1) {
-
 					e1.printStackTrace();
 				}
 
@@ -191,7 +187,14 @@ public class GenericFunctions extends TestNGListeners {
 		}
 
 	}
-
+	/*************************************************
+	 * Method Name		: hoverAndClick
+	 * Purpose			: This method will hover and click 
+	 * I/P Parameters	: WebElement
+	 * O/P Parameters	: Boolean 
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public static boolean hoverAndClick(WebElement element) {
 		boolean status = true;
 
@@ -208,6 +211,14 @@ public class GenericFunctions extends TestNGListeners {
 
 		return status;
 	}
+	/*************************************************
+	 * Method Name		: hoverOverElement
+	 * Purpose			: This method will hover on the element
+	 * I/P Parameters	: WebElement
+	 * O/P Parameters	: Boolean
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public static boolean hoverOverElement(WebElement element) {
 		boolean status = true;
 
@@ -224,29 +235,50 @@ public class GenericFunctions extends TestNGListeners {
 
 		return status;
 	}
-
+	/*************************************************
+	 * Method Name		: forceClick
+	 * Purpose			: This method will force click the element using Java script Executor.
+	 * I/P Parameters	: WebElement
+	 * O/P Parameters	: 
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public static void forceClick(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		js.executeScript("arguments[0].click();", element);
 
 	}
-
+	/*************************************************
+	 * Method Name		: setText
+	 * Purpose			: This method will enter the given value in the given WebElement.
+	 * I/P Parameters	: WebElement and a String value
+	 * O/P Parameters	: Boolean value
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public boolean setText(WebElement ele, String value) {
 		boolean status = true;
 		try {
 			ele.click();
 			ele.clear();
 			ele.sendKeys(value);
-			
-
-		} catch (Exception e) {
-
+		} catch (Exception e) 
+		{
+			status = false;
 		}
 
 		return status;
 
 	}
+	/*************************************************
+	 * Method Name		: ValidateLinks
+	 * Purpose			: This method will validate all the links in a page 
+	 * I/P Parameters	: List of WebElements
+	 * O/P Parameters	: Boolean value
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public boolean ValidateLinks(List<WebElement> List) throws Exception
 	{
 		boolean methodstatus =true;
@@ -275,9 +307,17 @@ public class GenericFunctions extends TestNGListeners {
 			logEvent("Fail"," The link  couldn't be read" +e.getMessage());
 			System.out.println("Link failed");
 		}
-		return methodstatus;
-		
+		return methodstatus;		
 	}
+	/*************************************************
+	 * Method Name		: AppendDateNTime
+	 * Purpose			: This method will Append date and time to the given string. 
+	 * Used to make any  Email id to be unique.yyyyMMddHHmmSS is append to the email id.
+	 * I/P Parameters	: String
+	 * O/P Parameters	: String
+	 * Author			:
+	 * Creation date	:
+	 **************************************************/
 	public String AppendDateNTime(String str)
 	{
 		
